@@ -17,7 +17,7 @@ export default function ProductList({ products, loading }: ProductListProps) {
   if (products.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-600 text-lg">No products found</p>
+        <p className="text-[#4A4A4A] text-lg font-medium">No products found</p>
       </div>
     );
   }
@@ -30,4 +30,3 @@ export default function ProductList({ products, loading }: ProductListProps) {
     </div>
   );
 }
-

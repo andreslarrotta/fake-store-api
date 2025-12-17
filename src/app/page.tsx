@@ -22,12 +22,12 @@ export default function HomePage() {
   const cartItemsCount = getTotalItems();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#F5F5F5]">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="container mx-auto px-4 py-4">
+      <header className="bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] fixed top-0 w-full z-50">
+        <div className="max-w-[1280px] mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-blue-600">E-commerce Dashboard</h1>
+            <h1 className="text-2xl font-semibold text-[#1A4D2E] font-heading">E-commerce Dashboard</h1>
             <Link href="/cart">
               <Button variant="primary" size="md">
                 Cart ({cartItemsCount})
@@ -38,9 +38,9 @@ export default function HomePage() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="max-w-[1280px] mx-auto px-6 pt-32 pb-20">
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mb-6">
             Error: {error}
           </div>
         )}

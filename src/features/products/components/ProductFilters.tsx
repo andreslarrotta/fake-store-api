@@ -52,11 +52,11 @@ export default function ProductFilters({
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-      <div className="space-y-4">
+    <div className="bg-white p-8 rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-[#E0E0E0] mb-8">
+      <div className="space-y-6">
         {/* Search */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-[#1A4D2E] mb-2">
             Search
           </label>
           <input
@@ -64,19 +64,19 @@ export default function ProductFilters({
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search products..."
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:ring-2 focus:ring-[#C8FF00] focus:border-transparent transition-all"
           />
         </div>
 
         {/* Category Filter */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-[#1A4D2E] mb-2">
             Category
           </label>
           <select
             value={filters.category || 'all'}
             onChange={(e) => handleCategoryChange(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:ring-2 focus:ring-[#C8FF00] focus:border-transparent transition-all"
           >
             <option value="all">All Categories</option>
             {categories.map((category) => (
@@ -90,7 +90,7 @@ export default function ProductFilters({
         {/* Price Range */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-[#1A4D2E] mb-2">
               Min Price
             </label>
             <input
@@ -103,11 +103,11 @@ export default function ProductFilters({
                 )
               }
               placeholder="Min"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:ring-2 focus:ring-[#C8FF00] focus:border-transparent transition-all"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-[#1A4D2E] mb-2">
               Max Price
             </label>
             <input
@@ -120,20 +120,20 @@ export default function ProductFilters({
                 )
               }
               placeholder="Max"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:ring-2 focus:ring-[#C8FF00] focus:border-transparent transition-all"
             />
           </div>
         </div>
 
         {/* Sort */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-[#1A4D2E] mb-2">
             Sort By
           </label>
           <select
             value={sortOption}
             onChange={(e) => onSortChange(e.target.value as SortOption)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:ring-2 focus:ring-[#C8FF00] focus:border-transparent transition-all"
           >
             <option value="default">Default</option>
             <option value="price-asc">Price: Low to High</option>
@@ -144,7 +144,7 @@ export default function ProductFilters({
 
         {/* Clear Filters */}
         <Button
-          variant="outline"
+          variant="secondary"
           size="sm"
           onClick={clearFilters}
           className="w-full"
@@ -155,4 +155,3 @@ export default function ProductFilters({
     </div>
   );
 }
-

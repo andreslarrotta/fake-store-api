@@ -10,20 +10,20 @@ export default function CartPage() {
   const { items } = useCart();
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold mb-2">Shopping Cart</h1>
+    <div className="min-h-screen bg-[#F5F5F5] pt-20">
+      <div className="max-w-[1280px] mx-auto px-6 py-12">
+        <div className="mb-8">
+          <h1 className="text-4xl font-semibold mb-4 text-[#1A4D2E] font-heading">Shopping Cart</h1>
           <Link href="/">
-            <Button variant="outline" size="sm">
+            <Button variant="secondary" size="sm">
               ← Continue Shopping
             </Button>
           </Link>
         </div>
 
         {items.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-gray-600 text-lg mb-4">Your cart is empty</p>
+          <div className="text-center py-20">
+            <p className="text-[#4A4A4A] text-lg mb-6">Your cart is empty</p>
             <Link href="/">
               <Button variant="primary">Browse Products</Button>
             </Link>
@@ -31,7 +31,7 @@ export default function CartPage() {
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="bg-white rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-[#E0E0E0] overflow-hidden">
                 {items.map((item) => (
                   <CartItem key={item.product.id} item={item} />
                 ))}
@@ -46,4 +46,3 @@ export default function CartPage() {
     </div>
   );
 }
-

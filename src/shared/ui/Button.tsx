@@ -16,25 +16,23 @@ export default function Button({
   disabled,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles = 'font-semibold rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variants = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
-    outline: 'border-2 border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-gray-500',
+    primary: 'bg-[#C8FF00] text-black border-none shadow-[0_4px_12px_rgba(200,255,0,0.3)] hover:bg-[#B3E600] hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(200,255,0,0.4)] focus:ring-[#C8FF00]',
+    secondary: 'bg-transparent text-[#1A4D2E] border-2 border-[#1A4D2E] hover:bg-[#1A4D2E] hover:text-white focus:ring-[#1A4D2E]',
+    outline: 'bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#1A4D2E] focus:ring-white',
   };
 
   const sizes = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2 text-base',
-    lg: 'px-6 py-3 text-lg',
+    sm: 'px-6 py-2.5 text-sm',
+    md: 'px-8 py-3.5 text-base',
+    lg: 'px-10 py-4 text-lg',
   };
 
   return (
     <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className} ${
-        (disabled || isLoading) ? 'opacity-50 cursor-not-allowed' : ''
-      }`}
+      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
       disabled={disabled || isLoading}
       {...props}
     >
@@ -42,4 +40,3 @@ export default function Button({
     </button>
   );
 }
-

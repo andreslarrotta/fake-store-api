@@ -12,31 +12,31 @@ export default function CartSummary() {
 
   if (totalItems === 0) {
     return (
-      <Card className="p-6 text-center">
-        <p className="text-gray-600 text-lg">Your cart is empty</p>
+      <Card className="text-center">
+        <p className="text-[#4A4A4A] text-lg">Your cart is empty</p>
       </Card>
     );
   }
 
   return (
-    <Card className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Order Summary</h2>
-      <div className="space-y-2 mb-6">
+    <Card>
+      <h2 className="text-2xl font-semibold mb-6 text-[#1A4D2E] font-heading">Order Summary</h2>
+      <div className="space-y-3 mb-6">
         <div className="flex justify-between">
-          <span className="text-gray-600">Items:</span>
-          <span className="font-medium">{totalItems}</span>
+          <span className="text-[#4A4A4A]">Items:</span>
+          <span className="font-semibold text-[#1A4D2E]">{totalItems}</span>
         </div>
-        <div className="flex justify-between text-xl font-bold pt-4 border-t">
-          <span>Total:</span>
-          <span>{formatPrice(totalPrice)}</span>
+        <div className="flex justify-between text-2xl font-bold pt-4 border-t border-[#E0E0E0]">
+          <span className="text-[#1A4D2E]">Total:</span>
+          <span className="text-[#1A4D2E]">{formatPrice(totalPrice)}</span>
         </div>
       </div>
-      <div className="space-y-2">
+      <div className="space-y-3">
         <Button variant="primary" size="lg" className="w-full">
           Checkout
         </Button>
         <Button
-          variant="outline"
+          variant="secondary"
           size="md"
           className="w-full"
           onClick={clearCart}
@@ -47,4 +47,3 @@ export default function CartSummary() {
     </Card>
   );
 }
-
