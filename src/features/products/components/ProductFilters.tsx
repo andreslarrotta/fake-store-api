@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ProductFilters, SortOption } from '../types/product.types';
+import type { ProductFilters, SortOption } from '../types/product.types';
 import { useDebounce } from '../../../shared/hooks/useDebounce';
 import Button from '../../../shared/ui/Button';
 
@@ -68,28 +68,29 @@ export default function ProductFilters({
           />
         </div>
 
-        {/* Category Filter */}
-        <div>
-          <label className="block text-sm font-semibold text-[#1A4D2E] mb-2">
-            Category
-          </label>
-          <select
-            value={filters.category || 'all'}
-            onChange={(e) => handleCategoryChange(e.target.value)}
-            className="w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:ring-2 focus:ring-[#C8FF00] focus:border-transparent transition-all"
-          >
-            <option value="all">All Categories</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </option>
-            ))}
-          </select>
-        </div>
+        {/* Filters Row */}
+        <div className="flex flex-wrap gap-4 items-end">
+          {/* Category Filter */}
+          <div className="flex-1 min-w-[150px]">
+            <label className="block text-sm font-semibold text-[#1A4D2E] mb-2">
+              Category
+            </label>
+            <select
+              value={filters.category || 'all'}
+              onChange={(e) => handleCategoryChange(e.target.value)}
+              className="appearance-none w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:ring-2 focus:ring-[#C8FF00] focus:border-transparent transition-all"
+            >
+              <option value="all">All Categories</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        {/* Price Range */}
-        <div className="grid grid-cols-2 gap-4">
-          <div>
+          {/* Min Price */}
+          <div className="flex-1 min-w-[120px]">
             <label className="block text-sm font-semibold text-[#1A4D2E] mb-2">
               Min Price
             </label>
@@ -106,7 +107,9 @@ export default function ProductFilters({
               className="w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:ring-2 focus:ring-[#C8FF00] focus:border-transparent transition-all"
             />
           </div>
-          <div>
+
+          {/* Max Price */}
+          <div className="flex-1 min-w-[120px]">
             <label className="block text-sm font-semibold text-[#1A4D2E] mb-2">
               Max Price
             </label>
@@ -123,34 +126,35 @@ export default function ProductFilters({
               className="w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:ring-2 focus:ring-[#C8FF00] focus:border-transparent transition-all"
             />
           </div>
-        </div>
 
-        {/* Sort */}
-        <div>
-          <label className="block text-sm font-semibold text-[#1A4D2E] mb-2">
-            Sort By
-          </label>
-          <select
-            value={sortOption}
-            onChange={(e) => onSortChange(e.target.value as SortOption)}
-            className="w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:ring-2 focus:ring-[#C8FF00] focus:border-transparent transition-all"
-          >
-            <option value="default">Default</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="rating">Highest Rated</option>
-          </select>
-        </div>
+          {/* Sort */}
+          <div className="flex-1 min-w-[150px]">
+            <label className="block text-sm font-semibold text-[#1A4D2E] mb-2">
+              Sort By
+            </label>
+            <select
+              value={sortOption}
+              onChange={(e) => onSortChange(e.target.value as SortOption)}
+              className="appearance-none w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:ring-2 focus:ring-[#C8FF00] focus:border-transparent transition-all"
+            >
+              <option value="default">Default</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+          </div>
 
-        {/* Clear Filters */}
-        <Button
-          variant="secondary"
-          size="sm"
-          onClick={clearFilters}
-          className="w-full"
-        >
-          Clear Filters
-        </Button>
+          {/* Clear Filters */}
+          <div className="shrink-0">
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={clearFilters}
+            >
+              Clear Filters
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
